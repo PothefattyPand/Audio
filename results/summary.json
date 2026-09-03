@@ -1,0 +1,121 @@
+{
+  "device": "cuda",
+  "total_samples": 2148,
+  "num_classes": 12,
+  "benchmark": [
+    {
+      "Model": "TF-FaultNet (Custom)",
+      "Accuracy": 0.9976722502303896,
+      "Accuracy_std": 0.0020824906554850918,
+      "Macro F1": 0.9976650718952055,
+      "Macro_F1_std": 0.0020853250875946952
+    },
+    {
+      "Model": "WaveformCNN1D",
+      "Accuracy": 0.9967420176722502,
+      "Accuracy_std": 0.0023707878115821353,
+      "Macro F1": 0.9967390645241311,
+      "Macro_F1_std": 0.0023792785549916727
+    },
+    {
+      "Model": "AudioBiGRU",
+      "Accuracy": 0.9930145823169079,
+      "Accuracy_std": 0.003296545094509359,
+      "Macro F1": 0.993039624101184,
+      "Macro_F1_std": 0.003284613367311883
+    },
+    {
+      "Model": "XGBoost",
+      "Accuracy": 0.9646099636797312,
+      "Accuracy_std": 0.01038079233265791,
+      "Macro F1": 0.9647136157482123,
+      "Macro_F1_std": 0.01032818394328907
+    }
+  ],
+  "per_class": [
+    {
+      "Class": "Escorregamento",
+      "Precision": 1.0,
+      "Recall": 0.994413407821229,
+      "F1-Score": 0.9971988795518207,
+      "Support": 179
+    },
+    {
+      "Class": "Escorregamento_P1",
+      "Precision": 0.9888888888888889,
+      "Recall": 0.994413407821229,
+      "F1-Score": 0.9916434540389972,
+      "Support": 179
+    },
+    {
+      "Class": "Escorregamento_P1P4",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1-Score": 1.0,
+      "Support": 179
+    },
+    {
+      "Class": "Normal",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1-Score": 1.0,
+      "Support": 179
+    },
+    {
+      "Class": "Perda_concentrada",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1-Score": 1.0,
+      "Support": 179
+    },
+    {
+      "Class": "Perda_concentrada_P1",
+      "Precision": 0.9944444444444445,
+      "Recall": 1.0,
+      "F1-Score": 0.9972144846796658,
+      "Support": 179
+    },
+    {
+      "Class": "Perda_concentrada_P1P4",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1-Score": 1.0,
+      "Support": 179
+    },
+    {
+      "Class": "Perda_material",
+      "Precision": 1.0,
+      "Recall": 0.994413407821229,
+      "F1-Score": 0.9971988795518207,
+      "Support": 179
+    },
+    {
+      "Class": "Perda_material_P1",
+      "Precision": 1.0,
+      "Recall": 0.994413407821229,
+      "F1-Score": 0.9971988795518207,
+      "Support": 179
+    },
+    {
+      "Class": "Perda_material_P1P4",
+      "Precision": 1.0,
+      "Recall": 0.994413407821229,
+      "F1-Score": 0.9971988795518207,
+      "Support": 179
+    },
+    {
+      "Class": "Sem_P1",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1-Score": 1.0,
+      "Support": 179
+    },
+    {
+      "Class": "Sem_P1P4",
+      "Precision": 0.988950276243094,
+      "Recall": 1.0,
+      "F1-Score": 0.9944444444444445,
+      "Support": 179
+    }
+  ]
+}
