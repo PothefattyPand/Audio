@@ -1,0 +1,57 @@
+{
+  "dataset": "Base_de_Dados 3-Class Macro Taxonomy",
+  "evaluation_partition": "Quarantined Held-Out Test Set (Zero Leakage)",
+  "sample_count": 430,
+  "classes": [
+    "Healthy_Baseline",
+    "Continuous_Friction_and_Wear",
+    "Impulsive_Shocks_and_Structural"
+  ],
+  "metrics": {
+    "test_accuracy": 0.986046511627907,
+    "macro_precision": 0.9891891891891892,
+    "macro_recall": 0.9829888027562447,
+    "macro_f1_score": 0.9858890901972924,
+    "macro_roc_auc": 0.9995439930596905,
+    "micro_roc_auc": 0.9987993510005408,
+    "macro_pr_auc": 0.999374141747812,
+    "micro_pr_auc": 0.9977234487866313
+  },
+  "per_class": [
+    {
+      "class_index": 0,
+      "class_name": "Healthy_Baseline",
+      "precision": 1.0,
+      "recall": 0.9722222222222222,
+      "f1_score": 0.9859154929577465,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "support": 36
+    },
+    {
+      "class_index": 1,
+      "class_name": "Continuous_Friction_and_Wear",
+      "precision": 1.0,
+      "recall": 0.9767441860465116,
+      "f1_score": 0.9882352941176471,
+      "roc_auc": 0.9991779340183883,
+      "pr_auc": 0.9992155470081934,
+      "support": 215
+    },
+    {
+      "class_index": 2,
+      "class_name": "Impulsive_Shocks_and_Structural",
+      "precision": 0.9675675675675676,
+      "recall": 1.0,
+      "f1_score": 0.9835164835164835,
+      "roc_auc": 0.9992209931224821,
+      "pr_auc": 0.9989068782352425,
+      "support": 179
+    }
+  ],
+  "exported_models": {
+    "torchscript_jit": "results/checkpoints/best_tf_faultnet_3class_jit.pt",
+    "onnx_backbone": "results/checkpoints/best_tf_faultnet_3class_backbone.onnx",
+    "pytorch_weights": "results/checkpoints/best_tf_faultnet_3class.pt"
+  }
+}
