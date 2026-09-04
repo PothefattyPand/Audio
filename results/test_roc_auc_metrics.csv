@@ -1,0 +1,13 @@
+class_index,class_name,roc_auc,pr_auc
+0,Escorregamento,1.0,1.0
+1,Escorregamento_P1,1.0,1.0
+2,Escorregamento_P1P4,1.0,1.0
+3,Normal,1.0,1.0
+4,Perda_concentrada,0.9999294980259448,0.9992492492492493
+5,Perda_concentrada_P1,1.0,1.0
+6,Perda_concentrada_P1P4,1.0,1.0
+7,Perda_material,1.0,1.0
+8,Perda_material_P1,1.0,1.0
+9,Perda_material_P1P4,1.0,1.0
+10,Sem_P1,1.0,1.0
+11,Sem_P1P4,1.0,1.0
