@@ -11,6 +11,7 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 
 from src.dataset import preload_all_audio, load_wav
+from src.signal_statistics import zero_crossing_rate as compute_zero_crossing_rate
 
 def compute_detailed_features(audio, sr=44100):
     abs_audio = np.abs(audio)
@@ -26,7 +27,7 @@ def compute_detailed_features(audio, sr=44100):
     impulse = peak / (np.mean(abs_audio) + 1e-12)
     margin = peak / ((np.mean(np.sqrt(abs_audio)) ** 2) + 1e-12)
     energy = np.sum(audio ** 2)
-    zcr = np.mean(np.diff(np.sign(audio) != 0))
+    zcr = compute_zero_crossing_rate(audio)
     
     # FFT spectrum & PSD
     n = len(audio)

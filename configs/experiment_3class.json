@@ -1,0 +1,69 @@
+{
+  "experiment_name": "TF-FaultNet 3-Class Macro Taxonomy",
+  "seed": 42,
+  "model": {
+    "architecture": "TFFaultNet",
+    "num_classes": 3,
+    "input_type": "raw_audio_waveform",
+    "input_shape": [
+      44100
+    ],
+    "spectrogram": {
+      "sr": 44100,
+      "n_fft": 1024,
+      "hop_length": 256,
+      "n_mels": 64
+    },
+    "backbone": "Custom ResNet + SE-Attention",
+    "pooling": "AdaptiveAvgPool2d + AdaptiveMaxPool2d (concatenated)",
+    "classifier_dropout": [
+      0.35,
+      0.2
+    ]
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 64,
+    "epochs": 25,
+    "scheduler": "CosineAnnealingLR",
+    "scheduler_params": {
+      "T_max": 25,
+      "eta_min": 1e-05
+    },
+    "loss_function": "CrossEntropyLoss",
+    "label_smoothing": 0.05,
+    "augmentation": "train_only (via MemoryFaultDataset augment=True)"
+  },
+  "data_split": {
+    "method": "Frozen stratified manifest",
+    "ratios": {
+      "train": 0.64,
+      "val": 0.16,
+      "test": 0.2
+    },
+    "random_state": 42,
+    "manifest": "data/splits.csv",
+    "split_column": "split_multiclass_3class",
+    "immutable_during_training": true
+  },
+  "checkpoint_selection": {
+    "criterion": "lowest_validation_loss",
+    "best_epoch": 14,
+    "best_val_loss": 0.1992,
+    "best_val_acc": 0.9884,
+    "checkpoint_path": "results/checkpoints/best_tf_faultnet_3class.pt"
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1_score",
+    "secondary_metrics": [
+      "accuracy",
+      "macro_precision",
+      "macro_recall",
+      "macro_roc_auc",
+      "per_class_roc_auc"
+    ],
+    "test_set_size": 430
+  }
+}

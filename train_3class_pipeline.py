@@ -19,11 +19,10 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
-from sklearn.model_selection import StratifiedShuffleSplit
-
 from src.dataset import preload_all_audio, MemoryFaultDataset
 from src.audio_features import LogMelSpectrogramExtractor
 from src.models import TFFaultNet
+from src.split_manifest import load_split_manifest, rows_for_split
 from train import train_epoch, eval_epoch
 
 # Define the 3 Macro Classes and the exact mapping from the 12 original subfolders
@@ -111,8 +110,21 @@ def main():
     os.makedirs("results/checkpoints", exist_ok=True)
     os.makedirs("results/visualizations", exist_ok=True)
 
-    # 1. Dataset Loading & 3-Class Mapping
-    filepaths, labels, original_folders, class_names = gather_3class_dataset("Base_de_Dados")
+    # 1. Load the frozen manifest. Never recreate the split during training.
+    manifest_rows = load_split_manifest("data/splits.csv")
+    split_parts = {name: rows_for_split(manifest_rows, name) for name in ("train", "val", "test")}
+    ordered_rows = [
+        row for split in ("train", "val", "test")
+        for row in manifest_rows if row["split_multiclass_3class"] == split
+    ]
+    filepaths = np.array([row["filepath"] for row in ordered_rows])
+    labels = np.array([row["macro_class_index"] for row in ordered_rows], dtype=np.int64)
+    original_folders = np.array([row["original_subfolder"] for row in ordered_rows])
+    class_names = MACRO_CLASSES
+    split_sizes = {name: len(split_parts[name][0]) for name in split_parts}
+    train_idx = np.arange(0, split_sizes["train"])
+    val_idx = np.arange(split_sizes["train"], split_sizes["train"] + split_sizes["val"])
+    test_idx = np.arange(split_sizes["train"] + split_sizes["val"], len(ordered_rows))
     total_samples = len(filepaths)
     num_classes = len(class_names)
     print(f"Loaded {total_samples} audio samples mapped into {num_classes} Macro Classes:", flush=True)
@@ -123,20 +135,7 @@ def main():
     print("\nPreloading audio waveforms into memory...", flush=True)
     audio_matrix = preload_all_audio(filepaths, target_len=44100)
 
-    # 2. STRICT 3-WAY SPLIT: TRAIN (64%), VAL (16%), HELD-OUT TEST (20%)
-    # Zero leakage guarantee: Held-out test set is partitioned FIRST and quarantined.
-    sss_test = StratifiedShuffleSplit(n_splits=1, test_size=0.20, random_state=42)
-    train_val_idx, test_idx = next(sss_test.split(audio_matrix, labels))
-
-    # Split train_val into train (80%) and validation (20%)
-    train_val_labels = labels[train_val_idx]
-    sss_val = StratifiedShuffleSplit(n_splits=1, test_size=0.20, random_state=42)
-    train_sub_idx, val_sub_idx = next(sss_val.split(audio_matrix[train_val_idx], train_val_labels))
-
-    train_idx = train_val_idx[train_sub_idx]
-    val_idx = train_val_idx[val_sub_idx]
-
-    # Verify zero leakage mathematically
+    # 2. Verify the frozen train/validation/test partitions.
     set_train = set(train_idx)
     set_val = set(val_idx)
     set_test = set(test_idx)

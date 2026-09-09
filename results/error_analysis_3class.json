@@ -1,0 +1,92 @@
+[
+  {
+    "test_index": 81,
+    "filename": "Base_de_Dados\\Normal\\Normal_146.wav",
+    "true_class_index": 0,
+    "true_class_name": "Healthy_Baseline",
+    "predicted_class_index": 2,
+    "predicted_class_name": "Impulsive_Shocks_and_Structural",
+    "confidence_true_class": 0.4736100137233734,
+    "confidence_predicted_class": 0.49451661109924316,
+    "softmax_probabilities": [
+      0.4736100137233734,
+      0.03187334164977074,
+      0.49451661109924316
+    ]
+  },
+  {
+    "test_index": 280,
+    "filename": "Base_de_Dados\\Escorregamento_P1\\Escorregamento_P1_11.wav",
+    "true_class_index": 1,
+    "true_class_name": "Continuous_Friction_and_Wear",
+    "predicted_class_index": 2,
+    "predicted_class_name": "Impulsive_Shocks_and_Structural",
+    "confidence_true_class": 0.21410223841667175,
+    "confidence_predicted_class": 0.7566977143287659,
+    "softmax_probabilities": [
+      0.029200000688433647,
+      0.21410223841667175,
+      0.7566977143287659
+    ]
+  },
+  {
+    "test_index": 313,
+    "filename": "Base_de_Dados\\Escorregamento_P1\\Escorregamento_P1_28.wav",
+    "true_class_index": 1,
+    "true_class_name": "Continuous_Friction_and_Wear",
+    "predicted_class_index": 2,
+    "predicted_class_name": "Impulsive_Shocks_and_Structural",
+    "confidence_true_class": 0.051551658660173416,
+    "confidence_predicted_class": 0.9269198775291443,
+    "softmax_probabilities": [
+      0.021528488025069237,
+      0.051551658660173416,
+      0.9269198775291443
+    ]
+  },
+  {
+    "test_index": 317,
+    "filename": "Base_de_Dados\\Perda_material_P1\\Perda_material_P1 (32).wav",
+    "true_class_index": 1,
+    "true_class_name": "Continuous_Friction_and_Wear",
+    "predicted_class_index": 2,
+    "predicted_class_name": "Impulsive_Shocks_and_Structural",
+    "confidence_true_class": 0.051580604165792465,
+    "confidence_predicted_class": 0.9105338454246521,
+    "softmax_probabilities": [
+      0.037885524332523346,
+      0.051580604165792465,
+      0.9105338454246521
+    ]
+  },
+  {
+    "test_index": 363,
+    "filename": "Base_de_Dados\\Escorregamento_P1\\Escorregamento_P1_90.wav",
+    "true_class_index": 1,
+    "true_class_name": "Continuous_Friction_and_Wear",
+    "predicted_class_index": 2,
+    "predicted_class_name": "Impulsive_Shocks_and_Structural",
+    "confidence_true_class": 0.03704001381993294,
+    "confidence_predicted_class": 0.935519814491272,
+    "softmax_probabilities": [
+      0.027440160512924194,
+      0.03704001381993294,
+      0.935519814491272
+    ]
+  },
+  {
+    "test_index": 406,
+    "filename": "Base_de_Dados\\Escorregamento\\Escorregamento_77.wav",
+    "true_class_index": 1,
+    "true_class_name": "Continuous_Friction_and_Wear",
+    "predicted_class_index": 2,
+    "predicted_class_name": "Impulsive_Shocks_and_Structural",
+    "confidence_true_class": 0.03451259806752205,
+    "confidence_predicted_class": 0.9346209168434143,
+    "softmax_probabilities": [
+      0.030866486951708794,
+      0.03451259806752205,
+      0.9346209168434143
+    ]
+  }
+]

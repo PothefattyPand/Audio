@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from scipy import stats
+from src.signal_statistics import zero_crossing_rate as compute_zero_crossing_rate
 
 def hz_to_mel(hz):
     return 2595.0 * np.log10(1.0 + hz / 700.0)
@@ -101,7 +102,7 @@ def extract_signal_statistical_features(audio, sr=44100):
     impulse_factor = peak / (np.mean(abs_audio) + 1e-10)
     margin_factor = peak / ((np.mean(np.sqrt(abs_audio)) ** 2) + 1e-10)
     energy = np.sum(audio ** 2)
-    zero_crossing_rate = np.mean(np.diff(np.sign(audio) != 0))
+    zero_crossing_rate = compute_zero_crossing_rate(audio)
     
     # 2. Frequency-domain statistical indicators (FFT spectrum)
     fft_vals = np.abs(np.fft.rfft(audio))

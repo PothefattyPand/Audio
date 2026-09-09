@@ -49,9 +49,10 @@ def train_epoch(model, loader, criterion, optimizer, device):
     
     for audio, labels in loader:
         audio, labels = audio.to(device), labels.to(device)
-        optimizer.zero_grad()
+        # §10 order: forward → loss → zero_grad → backward → step
         outputs = model(audio)
         loss = criterion(outputs, labels)
+        optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         

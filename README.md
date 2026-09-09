@@ -53,6 +53,18 @@ Ensure Python 3.9+ is installed, then install the required dependencies:
 pip install torch numpy pandas scipy scikit-learn matplotlib seaborn onnx onnxscript
 ```
 
+Or install the complete, version-bounded environment (including test tools):
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Validate the frozen 3-class split before training:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
 ### 2. Run Environmental Noise & SNR Benchmark (+20 dB to -5 dB)
 
 ```bash

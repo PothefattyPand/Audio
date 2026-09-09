@@ -1,0 +1,49 @@
+{
+  "taxonomy": "3-Class Macro Taxonomy",
+  "classes": {
+    "0": {
+      "name": "Healthy_Baseline",
+      "description": "Normal operating condition with no faults",
+      "original_subfolders": [
+        "Normal"
+      ]
+    },
+    "1": {
+      "name": "Continuous_Friction_and_Wear",
+      "description": "Slippage and diffuse material loss conditions producing continuous friction-type acoustic signatures",
+      "original_subfolders": [
+        "Escorregamento",
+        "Escorregamento_P1",
+        "Escorregamento_P1P4",
+        "Perda_material",
+        "Perda_material_P1",
+        "Perda_material_P1P4"
+      ]
+    },
+    "2": {
+      "name": "Impulsive_Shocks_and_Structural",
+      "description": "Concentrated tooth loss and missing pulley conditions producing impulsive shock-type acoustic signatures",
+      "original_subfolders": [
+        "Perda_concentrada",
+        "Perda_concentrada_P1",
+        "Perda_concentrada_P1P4",
+        "Sem_P1",
+        "Sem_P1P4"
+      ]
+    }
+  },
+  "folder_to_class_index": {
+    "Normal": 0,
+    "Escorregamento": 1,
+    "Escorregamento_P1": 1,
+    "Escorregamento_P1P4": 1,
+    "Perda_material": 1,
+    "Perda_material_P1": 1,
+    "Perda_material_P1P4": 1,
+    "Perda_concentrada": 2,
+    "Perda_concentrada_P1": 2,
+    "Perda_concentrada_P1P4": 2,
+    "Sem_P1": 2,
+    "Sem_P1P4": 2
+  }
+}

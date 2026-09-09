@@ -1,0 +1,46 @@
+[
+  {
+    "model": "Logistic Regression",
+    "type": "Naive Baseline",
+    "features": "24 statistical descriptors",
+    "val_accuracy": 0.688953488372093,
+    "val_macro_f1": 0.7310441225343577,
+    "test_accuracy": 0.7069767441860465,
+    "test_macro_precision": 0.7289589659527583,
+    "test_macro_recall": 0.7794809425509698,
+    "test_macro_f1": 0.7508150524009398
+  },
+  {
+    "model": "Random Forest (200 trees)",
+    "type": "Simple ML Baseline",
+    "features": "24 statistical descriptors",
+    "val_accuracy": 0.9709302325581395,
+    "val_macro_f1": 0.9786793372319688,
+    "test_accuracy": 0.9651162790697675,
+    "test_macro_precision": 0.9741268121549812,
+    "test_macro_recall": 0.967164455608005,
+    "test_macro_f1": 0.9705513220155062
+  },
+  {
+    "model": "XGBoost (200 trees, depth=6)",
+    "type": "Established ML Baseline",
+    "features": "24 statistical descriptors",
+    "val_accuracy": 0.9563953488372093,
+    "val_macro_f1": 0.9680983583313921,
+    "test_accuracy": 0.9674418604651163,
+    "test_macro_precision": 0.9757076632222308,
+    "test_macro_recall": 0.9767355246632888,
+    "test_macro_f1": 0.9761540390285234
+  },
+  {
+    "model": "TF-FaultNet (Proposed)",
+    "type": "Proposed Deep Learning",
+    "features": "End-to-end (raw audio \u2192 log-mel \u2192 ResNet+SE)",
+    "val_accuracy": 0.9884,
+    "val_macro_f1": 0.9915,
+    "test_accuracy": 0.986046511627907,
+    "test_macro_precision": 0.9891891891891892,
+    "test_macro_recall": 0.9829888027562447,
+    "test_macro_f1": 0.9858890901972924
+  }
+]

@@ -275,53 +275,119 @@ def plot_3class_confusion_matrix(cm, class_names, acc, f1, output_path):
 
 
 def plot_3class_roc_pr(fpr, tpr, roc_auc, precision, recall, pr_auc, class_names, output_path):
-    fig, (ax_roc, ax_pr) = plt.subplots(1, 2, figsize=(16, 6.8), dpi=300)
-    display_names = ["Healthy Baseline", "Continuous Friction & Wear", "Impulsive Shocks & Structural"]
-    class_colors = ["#2ca02c", "#1f77b4", "#d62728"]
+    from matplotlib.patches import FancyBboxPatch
+    from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
 
-    # ---------------- PANEL 1: ROC CURVES ----------------
-    ax_roc.plot(fpr["micro"], tpr["micro"], label=f"Micro-Average (AUC = {roc_auc['micro']:.5f})",
-                color="magenta", linestyle=":", linewidth=3.0)
-    ax_roc.plot(fpr["macro"], tpr["macro"], label=f"Macro-Average (AUC = {roc_auc['macro']:.5f})",
-                color="navy", linestyle="--", linewidth=2.5)
+    fig, (ax_roc, ax_pr) = plt.subplots(1, 2, figsize=(18, 7.5), dpi=300)
+    display_names = ["Healthy Baseline", "Continuous Friction & Wear", "Impulsive Shocks & Structural"]
+    short_names   = ["Healthy", "Friction/Wear", "Impulsive/Struct."]
+    class_colors  = ["#2ca02c", "#1f77b4", "#d62728"]
+    class_markers = ["o", "s", "D"]
+
+    # ═══════════════ PANEL 1: ROC CURVES ═══════════════
+    # Shaded AUC fill for each class
+    for i in range(3):
+        ax_roc.fill_between(fpr[i], 0, tpr[i], alpha=0.08, color=class_colors[i])
+
+    # Plot curves
+    ax_roc.plot(fpr["micro"], tpr["micro"], label=f"Micro-Avg (AUC = {roc_auc['micro']:.5f})",
+                color="#FF00FF", linestyle=":", linewidth=2.8, zorder=5)
+    ax_roc.plot(fpr["macro"], tpr["macro"], label=f"Macro-Avg (AUC = {roc_auc['macro']:.5f})",
+                color="navy", linestyle="--", linewidth=2.5, zorder=5)
 
     for i in range(3):
         ax_roc.plot(fpr[i], tpr[i], color=class_colors[i], linewidth=2.2,
-                    label=f"Class {i}: {display_names[i]} (AUC = {roc_auc[i]:.5f})")
+                    label=f"Class {i}: {short_names[i]} (AUC = {roc_auc[i]:.5f})", zorder=4)
 
-    ax_roc.plot([0, 1], [0, 1], "k--", linewidth=1.0, alpha=0.5, label="Chance Baseline (AUC = 0.50)")
+        # Mark optimal operating point (Youden's J statistic)
+        j_scores = tpr[i] - fpr[i]
+        opt_idx = np.argmax(j_scores)
+        ax_roc.scatter(fpr[i][opt_idx], tpr[i][opt_idx], color=class_colors[i],
+                       marker=class_markers[i], s=100, edgecolors='black', linewidths=1.2, zorder=6)
+
+    ax_roc.plot([0, 1], [0, 1], "k--", linewidth=1.0, alpha=0.4, label="Chance (AUC = 0.50)")
     ax_roc.set_xlim([-0.02, 1.02])
-    ax_roc.set_ylim([-0.02, 1.02])
-    ax_roc.set_xlabel("False Positive Rate (1 - Specificity)", fontsize=11, fontweight="bold")
-    ax_roc.set_ylabel("True Positive Rate (Sensitivity / Recall)", fontsize=11, fontweight="bold")
-    ax_roc.set_title(f"(a) 3-Class ROC Curves\nMacro-AUC: {roc_auc['macro']:.5f} | Micro-AUC: {roc_auc['micro']:.5f}", 
-                     fontsize=12, fontweight="bold", pad=12)
-    ax_roc.grid(True, linestyle="--", alpha=0.5)
-    ax_roc.legend(loc="lower right", fontsize=9.5, frameon=True, framealpha=0.92)
+    ax_roc.set_ylim([-0.02, 1.05])
+    ax_roc.set_xlabel("False Positive Rate (1 − Specificity)", fontsize=11, fontweight="bold")
+    ax_roc.set_ylabel("True Positive Rate (Sensitivity)", fontsize=11, fontweight="bold")
+    ax_roc.set_title(f"(a) 3-Class ROC Curves\nMacro-AUC: {roc_auc['macro']:.5f} | Micro-AUC: {roc_auc['micro']:.5f}",
+                     fontsize=12, fontweight="bold", pad=14)
+    ax_roc.grid(True, linestyle="--", alpha=0.35)
+    ax_roc.legend(loc="lower right", fontsize=8.8, frameon=True, framealpha=0.92, edgecolor='gray')
 
-    # ---------------- PANEL 2: PR CURVES ----------------
-    ax_pr.plot(recall["micro"], precision["micro"], label=f"Micro-Average (AP = {pr_auc['micro']:.5f})",
-               color="magenta", linestyle=":", linewidth=3.0)
-    ax_pr.plot([0, 1], [1, 1], color="navy", linestyle="--", linewidth=2.5,
-               label=f"Macro-Average (AP = {pr_auc['macro']:.5f})")
+    # ---- ZOOMED INSET for ROC (top-left high-performance corner) ----
+    axins = inset_axes(ax_roc, width="45%", height="45%", loc='center',
+                       bbox_to_anchor=(-0.05, 0.02, 1, 1), bbox_transform=ax_roc.transAxes)
+    for i in range(3):
+        axins.fill_between(fpr[i], 0, tpr[i], alpha=0.12, color=class_colors[i])
+        axins.plot(fpr[i], tpr[i], color=class_colors[i], linewidth=2.0)
+        j_scores = tpr[i] - fpr[i]
+        opt_idx = np.argmax(j_scores)
+        axins.scatter(fpr[i][opt_idx], tpr[i][opt_idx], color=class_colors[i],
+                      marker=class_markers[i], s=80, edgecolors='black', linewidths=1.0, zorder=6)
+
+    axins.plot(fpr["micro"], tpr["micro"], color="#FF00FF", linestyle=":", linewidth=2.0)
+    axins.plot(fpr["macro"], tpr["macro"], color="navy", linestyle="--", linewidth=2.0)
+    axins.set_xlim([-0.005, 0.08])
+    axins.set_ylim([0.92, 1.005])
+    axins.set_title("Zoomed: FPR ∈ [0, 0.08]", fontsize=8, fontweight="bold", pad=3)
+    axins.grid(True, linestyle=":", alpha=0.4)
+    axins.tick_params(labelsize=7)
+    mark_inset(ax_roc, axins, loc1=1, loc2=3, fc="none", ec="0.5", linestyle="--", linewidth=0.8)
+
+    # ═══════════════ PANEL 2: PR CURVES ═══════════════
+    # Compute correct macro-average PR curve via interpolation
+    all_recall_pts = np.linspace(0, 1, 500)
+    mean_precision_arr = np.zeros_like(all_recall_pts)
+    for i in range(3):
+        # PR curves go from high recall to low recall, so flip for interp
+        sorted_idx = np.argsort(recall[i])
+        mean_precision_arr += np.interp(all_recall_pts, recall[i][sorted_idx], precision[i][sorted_idx])
+    mean_precision_arr /= 3
+
+    # Shaded fills for each class
+    for i in range(3):
+        sorted_idx = np.argsort(recall[i])
+        ax_pr.fill_between(recall[i][sorted_idx], 0, precision[i][sorted_idx], alpha=0.08, color=class_colors[i], step='post')
+
+    ax_pr.plot(recall["micro"], precision["micro"], label=f"Micro-Avg (AP = {pr_auc['micro']:.5f})",
+               color="#FF00FF", linestyle=":", linewidth=2.8, zorder=5)
+    ax_pr.plot(all_recall_pts, mean_precision_arr, label=f"Macro-Avg (AP = {pr_auc['macro']:.5f})",
+               color="navy", linestyle="--", linewidth=2.5, zorder=5)
 
     for i in range(3):
         ax_pr.plot(recall[i], precision[i], color=class_colors[i], linewidth=2.2,
-                   label=f"Class {i}: {display_names[i]} (AP = {pr_auc[i]:.5f})")
+                   label=f"Class {i}: {short_names[i]} (AP = {pr_auc[i]:.5f})", zorder=4)
 
+    # Baseline prevalence lines for each class
+    n_total = sum(np.sum(fpr[i] >= 0) for i in range(3))  # rough proxy, not used for prevalence
     ax_pr.set_xlim([-0.02, 1.02])
-    ax_pr.set_ylim([-0.02, 1.02])
+    ax_pr.set_ylim([-0.02, 1.05])
     ax_pr.set_xlabel("Recall (True Positive Rate)", fontsize=11, fontweight="bold")
     ax_pr.set_ylabel("Precision (Positive Predictive Value)", fontsize=11, fontweight="bold")
-    ax_pr.set_title(f"(b) 3-Class Precision-Recall (PR) Curves\nMacro-AP: {pr_auc['macro']:.5f} | Micro-AP: {pr_auc['micro']:.5f}", 
-                    fontsize=12, fontweight="bold", pad=12)
-    ax_pr.grid(True, linestyle="--", alpha=0.5)
-    ax_pr.legend(loc="lower left", fontsize=9.5, frameon=True, framealpha=0.92)
+    ax_pr.set_title(f"(b) 3-Class Precision-Recall (PR) Curves\nMacro-AP: {pr_auc['macro']:.5f} | Micro-AP: {pr_auc['micro']:.5f}",
+                    fontsize=12, fontweight="bold", pad=14)
+    ax_pr.grid(True, linestyle="--", alpha=0.35)
+    ax_pr.legend(loc="lower left", fontsize=8.8, frameon=True, framealpha=0.92, edgecolor='gray')
 
-    plt.suptitle("TF-FaultNet 3-Class Macro Taxonomy Discrimination on Quarantined Held-Out Test Set (N=430)",
-                 fontsize=14, fontweight="bold", y=0.98)
-    plt.tight_layout()
-    plt.savefig(output_path)
+    # ---- ZOOMED INSET for PR (high-performance corner) ----
+    axins_pr = inset_axes(ax_pr, width="45%", height="45%", loc='center',
+                          bbox_to_anchor=(0.0, 0.02, 1, 1), bbox_transform=ax_pr.transAxes)
+    for i in range(3):
+        axins_pr.plot(recall[i], precision[i], color=class_colors[i], linewidth=2.0)
+    axins_pr.plot(recall["micro"], precision["micro"], color="#FF00FF", linestyle=":", linewidth=2.0)
+    axins_pr.plot(all_recall_pts, mean_precision_arr, color="navy", linestyle="--", linewidth=2.0)
+    axins_pr.set_xlim([0.92, 1.005])
+    axins_pr.set_ylim([0.92, 1.005])
+    axins_pr.set_title("Zoomed: R & P ∈ [0.92, 1.0]", fontsize=8, fontweight="bold", pad=3)
+    axins_pr.grid(True, linestyle=":", alpha=0.4)
+    axins_pr.tick_params(labelsize=7)
+    mark_inset(ax_pr, axins_pr, loc1=1, loc2=3, fc="none", ec="0.5", linestyle="--", linewidth=0.8)
+
+    plt.suptitle("TF-FaultNet 3-Class Macro Taxonomy · Quarantined Held-Out Test Set (N=430, Zero Leakage)",
+                 fontsize=14, fontweight="bold", y=0.99)
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.savefig(output_path, bbox_inches='tight')
     plt.close()
     print(f">>> 3-Class ROC and PR curves saved to: {output_path}", flush=True)
 
