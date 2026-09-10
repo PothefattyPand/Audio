@@ -1,100 +1,50 @@
-# Audio Fault Diagnosis — TF-FaultNet
+# TF-FaultNet: three-class acoustic fault classification
 
-Comprehensive deep learning benchmark and acoustic fault diagnosis system for industrial machinery and rotating equipment.
+This research project classifies one-second machine recordings into healthy baseline, continuous friction/wear, and impulsive/structural conditions. The 2,148 WAV recordings come from 12 source-condition folders. The current experiment uses a frozen **file-level** split: 1,374 training, 344 validation, and 430 test recordings.
 
-## Overview
+The saved three-class model correctly classifies **424/430 test recordings: 98.60% accuracy and 0.98589 macro F1**. These metrics were checked against cached predictions and original audio. Acquisition/session independence is unverified; architectural superiority and deployment readiness are not established.
 
-This repository contains the complete dataset, models, training scripts, ablation studies, and evaluation benchmarks for acoustic fault diagnosis across 12 balanced mechanical health conditions.
+## Start here
 
-- **Primary Architecture**: `TF-FaultNet` (InstanceNorm Log-Mel + 2D ResNet + Squeeze-and-Excitation + Dual Pooling)
-- **Dataset**: `Base_de_Dados` (2,148 audio recordings, 12 classes, 44.1 kHz sampling rate)
-- **Benchmark Performance**: 99.81% ± 0.18% 5-fold cross-validation accuracy; 98.30% unseen session holdout accuracy
-- **Inference Speed**: 1.81 ms (550 inferences/sec on NVIDIA RTX 5070; 1.91 ms on CPU)
-- **Edge Deployment**: Production TorchScript JIT (`5.44 MB`) and ONNX (`5.21 MB`) models included
+- [Research methodology](docs/THREE_CLASS_RESEARCH_METHODOLOGY.md): current task, architecture, training and evaluation protocol.
+- [Supervisor review](docs/SUPERVISOR_REVIEW_2026-09-09.md): verified results, methodological issues and research priorities.
+- [Problem specification](docs/PROBLEM_SPECIFICATION.md), [EDA record](docs/EDA_PREPROCESSING.md), [error analysis](docs/ERROR_ANALYSIS.md), and [limitations](docs/LIMITATIONS_AND_ETHICS.md).
+- [Cleanup record](docs/CLEANUP_2026-09-10.md): removed files and recovery information.
 
----
+## Active files
 
-## Directory Structure
+| Path | Purpose |
+|---|---|
+| `Base_de_Dados/` | Immutable original WAV files |
+| `data/splits.csv` | Frozen `split_multiclass_3class` membership |
+| `metadata/class_mapping_3class.json` | Source-folder mapping |
+| `configs/experiment_3class.json` | Recorded settings; trainer still hardcodes them |
+| `src/` | Models, audio transforms, dataset and manifest validation |
+| `train_3class_pipeline.py` | Three-class training and export |
+| `train.py` | Shared epoch helpers and historical 12-class CV entry point |
+| `evaluate_3class_test_set.py` | Locked three-class model evaluation |
+| `scripts/baseline_comparison_3class.py` | Classical baseline pipeline |
+| `scripts/supervisor_audit.py` | Artifact verification without training or fresh inference |
+| `results/heldout_test_evaluation_report_3class.json` | Saved primary result |
+| `results/checkpoints/best_tf_faultnet_3class*` | Three-class weights and exports |
+| `tests/` | Manifest and signal-statistic tests |
 
-```
-├── Base_de_Dados/                              # 12-class acoustic fault audio dataset (.wav)
-├── results/                                    # Evaluation results, checkpoints, and visualizations
-│   ├── ablations/                              # Ablation experiment CSV logs
-│   ├── checkpoints/                            # Model weights (best_tf_faultnet.pt, ONNX, TorchScript JIT)
-│   ├── visualizations/                         # Saliency maps, SNR curves, t-SNE, confusion matrices
-│   ├── noise_robustness_benchmark.csv          # SNR degradation evaluation (+20 dB to -5 dB)
-│   ├── statistical_significance.csv            # Paired t-test and Wilcoxon p-values
-│   ├── edge_profiling_and_significance.json    # FLOPs, MACs, latency, and parameter footprint
-│   └── summary.json                            # Model performance summary
-├── src/                                        # Source modules (dataset loaders, models, audio features)
-├── train.py                                    # Main model training pipeline
-├── run_noise_snr_benchmark.py                  # Environmental noise robustness benchmark (+20 dB to -5 dB)
-├── explainability_and_attention_analysis.py    # Grad-CAM spectrogram attribution & SE channel analysis
-├── profile_and_stats.py                        # Statistical significance (p-values) & edge ONNX export
-├── ablation_study.py                           # Multi-architecture ablation testing
-├── eda_analysis.py                             # Exploratory data analysis and feature extraction
-├── diagnose_fit.py                             # Model fit diagnostic and generalizability checks
-├── ARCHITECTURE.md                             # Detailed tensor math, layer dimensions, and pooling
-├── SYSTEM_ARCHITECTURE_AND_FLOW.md             # End-to-end tensor transformations and execution flow
-├── METHODOLOGY.md                              # Portuguese translations & 3-Class Macro Taxonomy
-├── IEEE_TRANSACTIONS_RIGOR_ADDITIONS.md        # 8.5+ Scientific Rigor Dossier (SNR, XAI, p-values, Edge)
-└── MODEL_BENCHMARK_AND_ABLATION_COMPARISON.md  # Detailed benchmarking dossier
-```
+## Environment and checks
 
----
+Install project dependencies into your chosen environment:
 
-## Quick Start
-
-### 1. Installation
-
-Ensure Python 3.9+ is installed, then install the required dependencies:
-
-```bash
-pip install torch numpy pandas scipy scikit-learn matplotlib seaborn onnx onnxscript
-```
-
-Or install the complete, version-bounded environment (including test tools):
-
-```bash
+```powershell
 python -m pip install -r requirements.txt
-```
-
-Validate the frozen 3-class split before training:
-
-```bash
 python -m unittest discover -s tests -v
+python scripts/supervisor_audit.py
 ```
 
-### 2. Run Environmental Noise & SNR Benchmark (+20 dB to -5 dB)
+The requirements specify minimum versions, not a fully locked environment. The latest review ran 11 tests successfully; extractor tests were blocked by missing SciPy. Full training and inference were not reproduced during review.
 
-```bash
-python run_noise_snr_benchmark.py
-```
+The existing test set has already been inspected. Further model selection belongs on development data. Training/evaluation scripts write fixed output paths, so preserve prior artifacts before an intentional new experiment.
 
-### 3. Generate Explainable AI (XAI) Grad-CAM & SE Attention Heatmaps
+## Historical experiments
 
-```bash
-python explainability_and_attention_analysis.py
-```
+The 12-class training, held-out evaluation, ablation, fit-diagnostic, noise and explainability scripts remain for provenance, alongside their numerical results and checkpoints. They use different experimental protocols and contain known limitations documented in the supervisor review. Their results must not be substituted for the three-class result or treated as verified independent-session performance.
 
-### 4. Edge Profiling & Statistical Significance Hypothesis Testing
-
-```bash
-python profile_and_stats.py
-```
-
----
-
-## Benchmark & Scientific Rigor Highlights (8.5+ Rating)
-
-| Evaluation Dimension | **TF-FaultNet (Proposed)** | WaveformCNN1D | AudioBiGRU | XGBoost Classifier |
-| :--- | :---: | :---: | :---: | :---: |
-| **5-Fold CV Accuracy** | **99.81% ± 0.18%** 🥇 | 99.67% ± 0.24% 🥈 | 99.30% ± 0.33% 🥉 | 96.46% ± 1.04% (4th) |
-| **Statistical Significance vs Proposed** | **Reference Model** | $p = 0.177$ | **$p = 0.0032$** ($p < 0.01$) | **$p = 0.0012$** ($p < 0.01$) |
-| **Unseen Session Holdout** | **98.30%** 🥇 | 96.28% 🥈 | 94.88% 🥉 | 91.63% (4th) |
-| **0 dB Critical SNR Accuracy** | **22.79%** 🥇 | 18.14% 🥈 | 8.37% (Fails) | N/A |
-| **-5 dB Sub-Noise Accuracy** | **20.23%** 🥇 | 10.00% | 8.37% (Fails) | N/A |
-| **Edge Compute Budget** | **33.58 M MACs / 67.16 M FLOPs** | ~28 M MACs | ~95 M MACs | N/A |
-| **RTX 5070 Latency (Batch=1)**| **1.81 ms (550 FPS)** | 1.12 ms | 4.60 ms | 0.45 ms (CPU) |
-| **x86 CPU Latency (Batch=1)** | **1.91 ms (524 FPS)** | 2.45 ms | 12.80 ms | 0.45 ms |
-| **Deployable Formats** | **TorchScript JIT (5.44 MB) & ONNX (5.21 MB)** | PyTorch | PyTorch | Pickle |
+Use empirical ROC plots under `results/visualizations/`; redundant smoothed display variants were removed. ONNX files contain the spectrogram backbone, while TorchScript exports include waveform preprocessing. Exported files alone do not establish deployment readiness.

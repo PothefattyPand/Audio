@@ -1,0 +1,156 @@
+{
+  "date": "2026-09-10",
+  "restore_from_commit": "8c502810193e6291ee2ce254e74cb2d21140db04",
+  "files": [
+    {
+      "path": "ABLATION_STUDY_REPORT.md",
+      "bytes": 11552,
+      "sha256": "5772267487FCAD6F7A55597EA730CFE86E3BD2610F67C6406D6A39B382E46304"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "bytes": 14577,
+      "sha256": "EEB72A6CA9A11339C4B96184457374F1420AD366039A21276D674DAD35DC94E5"
+    },
+    {
+      "path": "Acoustic_Fault_Diagnosis_Report.pdf",
+      "bytes": 1328929,
+      "sha256": "3C50D3D6C0E63A3FDB98A8B58A3071FE10A7ECF31371A245FFAB6CAE0515734C"
+    },
+    {
+      "path": "GENERAL_ML_PIPELINE_GUIDE.md",
+      "bytes": 11862,
+      "sha256": "332CB2610909E4BA179FC56C833D93DACD3480DD6589F31BC8155C0ABDFE224A"
+    },
+    {
+      "path": "IEEE_TRANSACTIONS_RIGOR_ADDITIONS.md",
+      "bytes": 20387,
+      "sha256": "6DD171047A66888AB26E19B5974947C1D0062368A2FCB01271009BBEEC1DEF76"
+    },
+    {
+      "path": "METHODOLOGY.md",
+      "bytes": 16481,
+      "sha256": "E11E5A74A83C4DF06BF1FF21BA6568C75A622243425F20B3FFE37620D648CE39"
+    },
+    {
+      "path": "MODEL_BENCHMARK_AND_ABLATION_COMPARISON.md",
+      "bytes": 10557,
+      "sha256": "8A0E94062226DD29C4C12E6D67B156025045AB5D70B18247A20E0978BD1DA8C6"
+    },
+    {
+      "path": "MODEL_BENCHMARK_AND_ABLATION_COMPARISON.pdf",
+      "bytes": 273742,
+      "sha256": "B04FBA705517AF90E516C6E5B18D8C53958BFB8A121BF897AF90E0980B0A5BE3"
+    },
+    {
+      "path": "PROJECT_PITCH_AND_TECHNICAL_REPORT.md",
+      "bytes": 15590,
+      "sha256": "5C1E6087ACA57A802BED019F98569F0633B9097C352768E0D19F929B9DE3DB4A"
+    },
+    {
+      "path": "RESEARCH_METHODOLOGY_AND_FLOWCHART.md",
+      "bytes": 18742,
+      "sha256": "1F6FF016E20FCF2A63BD3D3960E3C3A9339192F20FEAD57E122C13F50B268114"
+    },
+    {
+      "path": "SYSTEM_ARCHITECTURE_AND_FLOW.md",
+      "bytes": 14552,
+      "sha256": "D12E5764C1EE68B26C2A607F802D8F9060D41862C19827413A56A9C6CCC99846"
+    },
+    {
+      "path": "TF_FAULTNET_COMPREHENSIVE_DISSERTATION.md",
+      "bytes": 25712,
+      "sha256": "874BCB84F767569FC1961DA348CE9FAA3524E9CCC584A799D9182812E83FB86B"
+    },
+    {
+      "path": "TF_FAULTNET_MASTER_DISSERTATION.pdf",
+      "bytes": 1322590,
+      "sha256": "D807E069541E911B140ACF94E7CE4AB5BD4257C922B92FCC049E93FA368CFDE5"
+    },
+    {
+      "path": "TF-FaultNet_Plain_Language_Brief.pdf",
+      "bytes": 83127,
+      "sha256": "859CAF1908C6FD4DE64649E5EF73135034E5A70B04017DCAC6602CE4087506F4"
+    },
+    {
+      "path": "extracted_brief.txt",
+      "bytes": 6710,
+      "sha256": "E71E7745DE31802942EFF8EF19D9DDDEAFA623DCCD33BDFC013682A83EE5158A"
+    },
+    {
+      "path": "generate_comparison_pdf.py",
+      "bytes": 16797,
+      "sha256": "C1F9A623CCB3290D43BD5ABB97859C9371FED9BF1D110CDE5100F9847001CC14"
+    },
+    {
+      "path": "generate_master_pdf.py",
+      "bytes": 18695,
+      "sha256": "1E6588C82C2708E10C6497961948F91FC54660DB9151EA46B7EF416BF9F7BD61"
+    },
+    {
+      "path": "generate_pdf_report.py",
+      "bytes": 18210,
+      "sha256": "666D72AB7119C1B846B6C0A983F2CE9FC62A885A3D101C5E44D518DBCE553D9C"
+    },
+    {
+      "path": "kaggle_run_audio_fault_model.ipynb",
+      "bytes": 16584,
+      "sha256": "1D9432EC075002F62DC07934954F187375076712C14F10C14AF0A1803C818358"
+    },
+    {
+      "path": "kaggle_run_custom_model.ipynb",
+      "bytes": 19485,
+      "sha256": "77985431472682544CADC28CE800542D65ADEE8FEA31A66858D05C50EEA317B7"
+    },
+    {
+      "path": "docs/ABLATION_3CLASS_NOTE.md",
+      "bytes": 3223,
+      "sha256": "87528459E295BF4240032DFB1E89B5243872655BBBF3973BA72E30C3B81BD87B"
+    },
+    {
+      "path": "scripts/plot_smooth_roc.py",
+      "bytes": 4305,
+      "sha256": "FF160C867BF2FE21F9B7994119DC12AB4F9B5DBB47FFFF91C2D843427870D2FB"
+    },
+    {
+      "path": "outputs/confusion_matrix.png",
+      "bytes": 149415,
+      "sha256": "15B82112CDB1C3B79162E62695BAA7CB86CAA6A30C1F39A1104EA81422C77E68"
+    },
+    {
+      "path": "outputs/error_analysis/error_analysis_misclassifications_3class.png",
+      "bytes": 1299064,
+      "sha256": "58948F2C998D3ACCF6658ECAB53DE054391811DA1D10A3A59C845590C634096E"
+    },
+    {
+      "path": "results/visualizations/roc_curve_3class_smoothed.pdf",
+      "bytes": 22851,
+      "sha256": "4B974DA1DF4E1EF54993A1751917B04E095CA7CFEA6AC5B1E20C5954D0F07467"
+    },
+    {
+      "path": "results/visualizations/roc_curve_3class_smoothed.png",
+      "bytes": 158488,
+      "sha256": "29F2894AE11E05B186C874F1BA355541A6DD91FBDA004E7B97A3488B0D44AD3E"
+    },
+    {
+      "path": "results/visualizations/roc_curve_3class_smoothed.svg",
+      "bytes": 67183,
+      "sha256": "629954AA819D7BF406A69F169B6378094753C375AB30FE6671F0528F44D88B09"
+    },
+    {
+      "path": "results/visualizations/roc_curve_3class_smoothed_detail.pdf",
+      "bytes": 25051,
+      "sha256": "1C93694F914AC849BF9934BBD5565C0958FD69BB73BCF3AEEC676E4CCE1FD73E"
+    },
+    {
+      "path": "results/visualizations/roc_curve_3class_smoothed_detail.png",
+      "bytes": 175149,
+      "sha256": "87C5405D7224EF9FEEC0C8503B9316772DD1070FF728597EE6D477879E2E4BF2"
+    },
+    {
+      "path": "results/visualizations/roc_curve_3class_smoothed_detail.svg",
+      "bytes": 75941,
+      "sha256": "14E80B5B537D0F183938DD2DB7017EFE9320CDC30A3DFC859BC57805F6393C7E"
+    }
+  ]
+}

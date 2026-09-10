@@ -1,0 +1,437 @@
+{
+  "scope": "Saved-artifact verification, not new model evaluation",
+  "python_inventory": [
+    {
+      "file": "ablation_study.py",
+      "lines": 443,
+      "definitions": [
+        "SqueezeExcitation",
+        "AblationResBlock",
+        "LogMelSpectrogramExtractorNoNorm",
+        "FlexibleFaultNet",
+        "train_eval_model",
+        "run_ablation_experiments"
+      ]
+    },
+    {
+      "file": "diagnose_fit.py",
+      "lines": 316,
+      "definitions": [
+        "run_diagnostics"
+      ]
+    },
+    {
+      "file": "eda_analysis.py",
+      "lines": 261,
+      "definitions": [
+        "compute_detailed_features",
+        "main"
+      ]
+    },
+    {
+      "file": "evaluate_3class_test_set.py",
+      "lines": 426,
+      "definitions": [
+        "TFFaultNetBackbone",
+        "main",
+        "plot_3class_confusion_matrix",
+        "plot_3class_roc_pr",
+        "plot_3class_sample_spectrograms"
+      ]
+    },
+    {
+      "file": "explainability_and_attention_analysis.py",
+      "lines": 233,
+      "definitions": [
+        "GradCAM",
+        "analyze_se_attention",
+        "main"
+      ]
+    },
+    {
+      "file": "generate_comparison_pdf.py",
+      "lines": 273,
+      "definitions": [
+        "NumberedCanvas",
+        "build_comparison_pdf"
+      ]
+    },
+    {
+      "file": "generate_master_pdf.py",
+      "lines": 325,
+      "definitions": [
+        "NumberedCanvas",
+        "build_master_pdf"
+      ]
+    },
+    {
+      "file": "generate_pdf_report.py",
+      "lines": 316,
+      "definitions": [
+        "NumberedCanvas",
+        "build_pdf"
+      ]
+    },
+    {
+      "file": "generate_roc_curves.py",
+      "lines": 261,
+      "definitions": [
+        "main",
+        "plot_roc_and_pr_curves",
+        "plot_zoomed_roc"
+      ]
+    },
+    {
+      "file": "profile_and_stats.py",
+      "lines": 321,
+      "definitions": [
+        "compute_significance",
+        "count_parameters",
+        "estimate_flops",
+        "profile_inference_latency",
+        "TFFaultNetBackbone",
+        "export_edge_models",
+        "main"
+      ]
+    },
+    {
+      "file": "run_noise_snr_benchmark.py",
+      "lines": 257,
+      "definitions": [
+        "add_noise_to_signal",
+        "evaluate_under_snr",
+        "main",
+        "plot_snr_curves"
+      ]
+    },
+    {
+      "file": "run_test_inference.py",
+      "lines": 311,
+      "definitions": [
+        "TFFaultNetBackbone",
+        "export_models",
+        "run_inference_on_heldout_test",
+        "plot_test_confusion_matrix",
+        "plot_sample_spectrogram_inferences"
+      ]
+    },
+    {
+      "file": "train.py",
+      "lines": 327,
+      "definitions": [
+        "set_seed",
+        "gather_dataset",
+        "train_epoch",
+        "eval_epoch",
+        "plot_confusion_matrix",
+        "plot_benchmark",
+        "main"
+      ]
+    },
+    {
+      "file": "train_3class_pipeline.py",
+      "lines": 352,
+      "definitions": [
+        "set_seed",
+        "gather_3class_dataset",
+        "TFFaultNetBackbone",
+        "main",
+        "plot_convergence_curves_3class"
+      ]
+    },
+    {
+      "file": "train_with_heldout_test.py",
+      "lines": 326,
+      "definitions": [
+        "set_seed",
+        "TFFaultNetBackbone",
+        "main",
+        "plot_convergence_curves"
+      ]
+    },
+    {
+      "file": "src\\audio_features.py",
+      "lines": 132,
+      "definitions": [
+        "hz_to_mel",
+        "mel_to_hz",
+        "get_mel_filterbank",
+        "LogMelSpectrogramExtractor",
+        "extract_signal_statistical_features"
+      ]
+    },
+    {
+      "file": "src\\dataset.py",
+      "lines": 73,
+      "definitions": [
+        "load_wav",
+        "preload_all_audio",
+        "MemoryFaultDataset"
+      ]
+    },
+    {
+      "file": "src\\models.py",
+      "lines": 166,
+      "definitions": [
+        "SqueezeExcitation",
+        "ConvBlock2D",
+        "TFFaultNet",
+        "WaveformCNN1D",
+        "AudioBiGRU"
+      ]
+    },
+    {
+      "file": "src\\signal_statistics.py",
+      "lines": 25,
+      "definitions": [
+        "zero_crossing_rate"
+      ]
+    },
+    {
+      "file": "src\\split_manifest.py",
+      "lines": 98,
+      "definitions": [
+        "load_split_manifest",
+        "rows_for_split"
+      ]
+    },
+    {
+      "file": "scripts\\baseline_comparison_3class.py",
+      "lines": 247,
+      "definitions": [
+        "main"
+      ]
+    },
+    {
+      "file": "scripts\\build_research_flowchart.py",
+      "lines": 150,
+      "definitions": [
+        "font",
+        "text",
+        "line",
+        "arrow",
+        "box"
+      ]
+    },
+    {
+      "file": "scripts\\error_analysis_3class.py",
+      "lines": 191,
+      "definitions": [
+        "main"
+      ]
+    },
+    {
+      "file": "scripts\\generate_protocol_artifacts.py",
+      "lines": 203,
+      "definitions": [
+        "main"
+      ]
+    },
+    {
+      "file": "scripts\\plot_roc_demo_style.py",
+      "lines": 159,
+      "definitions": [
+        "sha256",
+        "empirical_roc",
+        "main"
+      ]
+    },
+    {
+      "file": "scripts\\plot_roc_detail.py",
+      "lines": 54,
+      "definitions": [
+        "main"
+      ]
+    },
+    {
+      "file": "scripts\\plot_smooth_roc.py",
+      "lines": 90,
+      "definitions": [
+        "smooth_path",
+        "main"
+      ]
+    },
+    {
+      "file": "scripts\\plot_standard_roc.py",
+      "lines": 51,
+      "definitions": [
+        "main"
+      ]
+    },
+    {
+      "file": "scripts\\supervisor_audit.py",
+      "lines": 96,
+      "definitions": [
+        "digest",
+        "main"
+      ]
+    },
+    {
+      "file": "tests\\test_signal_statistics.py",
+      "lines": 67,
+      "definitions": [
+        "ZeroCrossingRateTests"
+      ]
+    },
+    {
+      "file": "tests\\test_split_manifest.py",
+      "lines": 39,
+      "definitions": [
+        "SplitManifestTests"
+      ]
+    },
+    {
+      "file": "tests\\test_zcr_extractors.py",
+      "lines": 62,
+      "definitions": [
+        "load_numerical_function",
+        "ZCRExtractorTests"
+      ]
+    }
+  ],
+  "notebooks": [
+    {
+      "file": "kaggle_run_audio_fault_model.ipynb",
+      "code_cells": 6,
+      "saved_outputs": 0,
+      "code": [
+        "import os, sys, glob, wave, time, json\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom scipy import stats\n\nimport torch\nimport torch.nn as nn\nimport torch.nn.functional as F\nimport torch.optim as optim\nfrom torch.utils.data import Dataset, DataLoader\nfrom sklearn.model_selection import StratifiedKFold\nfrom sklearn.metrics import accuracy_score, f1_score, precision_recall_fscore_support, confusion_matrix\nimport xgboost as xgb\n\ndevice = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\nprint(f\"PyTorch: {torch.__version__}\")\nprint(f\"CUDA Available: {torch.cuda.is_available()}\")\nif torch.cuda.is_available():\n    print(f\"GPU: {torch.cuda.get_device_name(0)}\")\n    print(f\"VRAM: {torch.cuda.get_device_properties(0).total_memory / 1e9:.2f} GB\")\n",
+        "# Search paths for Kaggle or Local workspace\nsearch_roots = [\"/kaggle/input\", \"./Base_de_Dados\", \"../Base_de_Dados\", \"./\"]\ndata_dir = None\nfor root in search_roots:\n    hits = glob.glob(os.path.join(root, \"**/Normal\"), recursive=True)\n    if hits:\n        data_dir = os.path.dirname(hits[0])\n        break\n\nif not data_dir or not os.path.isdir(data_dir):\n    raise FileNotFoundError(\"Base_de_Dados dataset directory not found!\")\n\nprint(f\"Dataset located at: {data_dir}\")\nclass_names = sorted([d for d in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, d))])\nprint(f\"Found {len(class_names)} classes: {class_names}\")\n",
+        "def load_wav(filepath):\n    with wave.open(filepath, 'rb') as w:\n        n_channels = w.getnchannels()\n        sampwidth = w.getsampwidth()\n        framerate = w.getframerate()\n        n_frames = w.getnframes()\n        frames = w.readframes(n_frames)\n        \n    dtype = np.int16 if sampwidth == 2 else (np.int32 if sampwidth == 4 else np.uint8)\n    audio = np.frombuffer(frames, dtype=dtype).astype(np.float32)\n    if sampwidth == 2:\n        audio /= 32768.0\n    elif sampwidth == 4:\n        audio /= 2147483648.0\n    elif sampwidth == 1:\n        audio = (audio - 128.0) / 128.0\n        \n    if n_channels > 1:\n        audio = audio.reshape(-1, n_channels).mean(axis=1)\n    return audio, framerate\n\nclass FaultAudioDataset(Dataset):\n    def __init__(self, filepaths, labels, target_len=44100, augment=False):\n        self.filepaths = filepaths\n        self.labels = labels\n        self.target_len = target_len\n        self.augment = augment\n\n    def __len__(self):\n        return len(self.filepaths)\n\n    def __getitem__(self, idx):\n        path = self.filepaths[idx]\n        label = self.labels[idx]\n        audio, sr = load_wav(path)\n        \n        if len(audio) < self.target_len:\n            audio = np.pad(audio, (0, self.target_len - len(audio)), mode='constant')\n        else:\n            audio = audio[:self.target_len]\n            \n        if self.augment:\n            if np.random.rand() < 0.4:\n                audio += np.random.normal(0, 0.005, size=audio.shape)\n            if np.random.rand() < 0.4:\n                audio *= np.random.uniform(0.8, 1.2)\n                \n        return torch.from_numpy(audio).float(), torch.tensor(label, dtype=torch.long)\n",
+        "def hz_to_mel(hz):\n    return 2595.0 * np.log10(1.0 + hz / 700.0)\n\ndef mel_to_hz(mel):\n    return 700.0 * (10.0 ** (mel / 2595.0) - 1.0)\n\ndef get_mel_filterbank(sr=44100, n_fft=1024, n_mels=64, f_min=20.0, f_max=22050.0):\n    mel_min = hz_to_mel(f_min)\n    mel_max = hz_to_mel(f_max)\n    mel_points = np.linspace(mel_min, mel_max, n_mels + 2)\n    hz_points = mel_to_hz(mel_points)\n    bin_points = np.floor((n_fft + 1) * hz_points / sr).astype(int)\n    n_freqs = n_fft // 2 + 1\n    weights = np.zeros((n_mels, n_freqs), dtype=np.float32)\n    for i in range(1, n_mels + 1):\n        left, center, right = bin_points[i-1], bin_points[i], bin_points[i+1]\n        for f in range(left, center):\n            if f < n_freqs and center > left: weights[i-1, f] = (f - left) / (center - left)\n        for f in range(center, right):\n            if f < n_freqs and right > center: weights[i-1, f] = (right - f) / (right - center)\n    enorm = 2.0 / (hz_points[2:n_mels+2] - hz_points[:n_mels])\n    weights *= enorm[:, np.newaxis]\n    return torch.from_numpy(weights).float()\n\nclass LogMelSpectrogramExtractor(nn.Module):\n    def __init__(self, sr=44100, n_fft=1024, hop_length=256, n_mels=64):\n        super().__init__()\n        self.n_fft = n_fft\n        self.hop_length = hop_length\n        self.register_buffer(\"window\", torch.hann_window(n_fft))\n        self.register_buffer(\"mel_fb\", get_mel_filterbank(sr, n_fft, n_mels))\n        \n    def forward(self, x):\n        stft = torch.stft(x, n_fft=self.n_fft, hop_length=self.hop_length, win_length=self.n_fft,\n                          window=self.window, return_complex=True, center=True, pad_mode='reflect')\n        power = torch.abs(stft) ** 2\n        mel = torch.matmul(self.mel_fb, power)\n        log_mel = torch.log(torch.clamp(mel, min=1e-6))\n        return log_mel.unsqueeze(1)\n\nclass SqueezeExcitation(nn.Module):\n    def __init__(self, channels, r=8):\n        super().__init__()\n        self.fc = nn.Sequential(\n            nn.AdaptiveAvgPool2d(1), nn.Flatten(),\n            nn.Linear(channels, max(1, channels // r), bias=False), nn.ReLU(inplace=True),\n            nn.Linear(max(1, channels // r), channels, bias=False), nn.Sigmoid()\n        )\n    def forward(self, x):\n        return x * self.fc(x).view(x.size(0), x.size(1), 1, 1)\n\nclass ConvBlock2D(nn.Module):\n    def __init__(self, in_c, out_c, stride=1):\n        super().__init__()\n        self.conv1 = nn.Conv2d(in_c, out_c, 3, stride=stride, padding=1, bias=False)\n        self.bn1 = nn.BatchNorm2d(out_c)\n        self.conv2 = nn.Conv2d(out_c, out_c, 3, padding=1, bias=False)\n        self.bn2 = nn.BatchNorm2d(out_c)\n        self.se = SqueezeExcitation(out_c)\n        self.shortcut = nn.Sequential(nn.Conv2d(in_c, out_c, 1, stride=stride, bias=False), nn.BatchNorm2d(out_c)) if (stride != 1 or in_c != out_c) else nn.Identity()\n    def forward(self, x):\n        res = self.shortcut(x)\n        out = self.se(self.bn2(self.conv2(F.relu(self.bn1(self.conv1(x)), inplace=True))))\n        return F.relu(out + res, inplace=True)\n\nclass TFFaultNet(nn.Module):\n    def __init__(self, num_classes=12):\n        super().__init__()\n        self.spec_extractor = LogMelSpectrogramExtractor()\n        self.init_conv = nn.Sequential(\n            nn.Conv2d(1, 32, 5, stride=2, padding=2, bias=False),\n            nn.BatchNorm2d(32), nn.ReLU(inplace=True), nn.MaxPool2d(2, 2)\n        )\n        self.layer1 = ConvBlock2D(32, 64, stride=2)\n        self.layer2 = ConvBlock2D(64, 128, stride=2)\n        self.layer3 = ConvBlock2D(128, 256, stride=2)\n        self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))\n        self.max_pool = nn.AdaptiveMaxPool2d((1, 1))\n        self.classifier = nn.Sequential(\n            nn.Dropout(0.35), nn.Linear(512, 256), nn.ReLU(inplace=True),\n            nn.Dropout(0.2), nn.Linear(256, num_classes)\n        )\n    def forward(self, x):\n        spec = self.spec_extractor(x)\n        feat = self.layer3(self.layer2(self.layer1(self.init_conv(spec))))\n        pooled = torch.cat([self.avg_pool(feat).view(x.size(0), -1), self.max_pool(feat).view(x.size(0), -1)], dim=1)\n        return self.classifier(pooled)\n",
+        "# Gather all files\nfilepaths, labels = [], []\nclass_to_idx = {c: i for i, c in enumerate(class_names)}\nfor cls in class_names:\n    for w in sorted(glob.glob(os.path.join(data_dir, cls, \"*.wav\"))):\n        filepaths.append(w)\n        labels.append(class_to_idx[cls])\nfilepaths, labels = np.array(filepaths), np.array(labels)\nprint(f\"Loaded {len(filepaths)} files across {len(class_names)} classes.\")\n\nskf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\nall_preds, all_targets = [], []\nfold_accs, fold_f1s = [], []\n\nfor fold, (train_idx, val_idx) in enumerate(skf.split(filepaths, labels), 1):\n    train_ds = FaultAudioDataset(filepaths[train_idx], labels[train_idx], augment=True)\n    val_ds = FaultAudioDataset(filepaths[val_idx], labels[val_idx], augment=False)\n    train_loader = DataLoader(train_ds, batch_size=32, shuffle=True)\n    val_loader = DataLoader(val_ds, batch_size=32, shuffle=False)\n    \n    model = TFFaultNet(num_classes=len(class_names)).to(device)\n    criterion = nn.CrossEntropyLoss(label_smoothing=0.05)\n    optimizer = optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-4)\n    scaler = torch.amp.GradScaler('cuda', enabled=(device.type == 'cuda'))\n    \n    best_f1, best_preds, best_targets = 0.0, None, None\n    for ep in range(15):\n        model.train()\n        for aud, lbl in train_loader:\n            aud, lbl = aud.to(device), lbl.to(device)\n            optimizer.zero_grad()\n            with torch.amp.autocast('cuda', enabled=(device.type == 'cuda')):\n                loss = criterion(model(aud), lbl)\n            scaler.scale(loss).backward()\n            scaler.step(optimizer)\n            scaler.update()\n            \n        model.eval()\n        p_list, t_list = [], []\n        with torch.no_grad():\n            for aud, lbl in val_loader:\n                aud = aud.to(device)\n                with torch.amp.autocast('cuda', enabled=(device.type == 'cuda')):\n                    out = model(aud)\n                p_list.extend(torch.argmax(out, dim=1).cpu().numpy())\n                t_list.extend(lbl.numpy())\n                \n        v_acc = accuracy_score(t_list, p_list)\n        v_f1 = f1_score(t_list, p_list, average='macro')\n        if v_f1 > best_f1:\n            best_f1 = v_f1\n            best_preds = p_list\n            best_targets = t_list\n            \n    fold_acc = accuracy_score(best_targets, best_preds)\n    fold_accs.append(fold_acc)\n    fold_f1s.append(best_f1)\n    all_preds.extend(best_preds)\n    all_targets.extend(best_targets)\n    print(f\"Fold {fold}/5 -> Accuracy: {fold_acc*100:.2f}% | Macro F1: {best_f1*100:.2f}%\")\n\nprint(\"=\" * 60)\nprint(f\"Overall 5-Fold Mean Accuracy: {np.mean(fold_accs)*100:.2f}% \u00b1 {np.std(fold_accs)*100:.2f}%\")\nprint(f\"Overall 5-Fold Mean Macro F1: {np.mean(fold_f1s)*100:.2f}% \u00b1 {np.std(fold_f1s)*100:.2f}%\")\n",
+        "cm = confusion_matrix(all_targets, all_preds)\nplt.figure(figsize=(10, 8), dpi=150)\nsns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=class_names, yticklabels=class_names)\nplt.title('TF-FaultNet Confusion Matrix (5-Fold Stratified CV)', fontsize=13, fontweight='bold', pad=12)\nplt.xlabel('Predicted Label', fontweight='bold')\nplt.ylabel('True Label', fontweight='bold')\nplt.xticks(rotation=45, ha='right')\nplt.tight_layout()\nplt.show()\n\nprec, rec, f1, supp = precision_recall_fscore_support(all_targets, all_preds)\nreport_df = pd.DataFrame({\n    'Class': class_names,\n    'Precision': [f'{p*100:.2f}%' for p in prec],\n    'Recall': [f'{r*100:.2f}%' for r in rec],\n    'F1-Score': [f'{f*100:.2f}%' for f in f1],\n    'Support': supp\n})\ndisplay(report_df)\n"
+      ]
+    },
+    {
+      "file": "kaggle_run_custom_model.ipynb",
+      "code_cells": 12,
+      "saved_outputs": 0,
+      "code": [
+        "import os, sys, subprocess, shutil, glob, json, time\nimport torch\n\nprint(\"python :\", sys.version.split()[0])\nprint(\"torch  :\", torch.__version__)\nprint(\"cuda   :\", torch.cuda.is_available())\nif torch.cuda.is_available():\n    print(\"device :\", torch.cuda.get_device_name(0))\n    print(\"memory : %.1f GB\" % (torch.cuda.get_device_properties(0).total_memory / 1e9))\nelse:\n    print(\"!! No GPU detected - Settings > Accelerator > GPU, then re-run.\")\n",
+        "# ---- what to run -------------------------------------------------------\nDATASET        = \"obd2\"   # \"obd2\" = OBD-II driving data, 3-class ordinal LODO\n                          # \"efdb\" = EngineFaultDB (kept working, not the focus)\n\nQUICK_TEST     = False   # True -> 3 epochs per fold, to prove the plumbing works\nRUN_SANITY     = True\nRUN_LODO       = True    # main model, one run per CV fold\nRUN_ABLATIONS  = True\nRUN_BASELINES  = True    # XGBoost, 1D-CNN, BiGRU - the models you must beat\nEPOCHS         = 3 if QUICK_TEST else None\nSEEDS          = [42, 43, 44]   # 3 seeds; ablation gaps are small, one seed cannot rank them\n\n# ---- EngineFaultDB settings -------------------------------------------\n# split  blocked = session-aware temporal CV (report this)\n#        random  = the paper's 80/20 (quote for comparability only; it leaks)\nEFDB_SPLIT     = \"blocked\"\nEFDB_FOLDS     = 5\nEFDB_MERGE_23  = True    # merge the inseparable faults 2 and 3 -> 3 classes.\n                         # False reproduces the published 4-class task, whose\n                         # information ceiling is ~0.75.\n\n# ---- OBD-II settings (ignored when DATASET == \"efdb\") ------------------\nWINDOWING          = \"contiguous\"\nVAL_SPLIT          = \"interleaved\"\nSEGMENT_VOTE       = 0       # OFF: matches the run that produced the 0.7271\n                             # ablation table. Enable (e.g. 20) only as a\n                             # separate experiment - it lifts baselines too.\nPER_DRIVER_SCALING = False   # OFF: also not active in that run. Changing\n                             # two things at once confounds the comparison.\nLABEL_SMOOTHING    = 0\nDRIVER_IDS         = [1, 2, 3]\n# ------------------------------------------------------------------------\n\nWORK = \"/kaggle/working\" if os.path.isdir(\"/kaggle/working\") else os.path.abspath(\"./kaggle_run\")\n\nif DATASET == \"efdb\":\n    tag = f\"efdb_{EFDB_SPLIT}_{'3class' if EFDB_MERGE_23 else '4class'}\"\n    FOLD_IDS = list(range(EFDB_FOLDS))\nelse:\n    tag = (f\"obd2_{WINDOWING}_{VAL_SPLIT}_seg{SEGMENT_VOTE}\"\n           f\"_pds{int(PER_DRIVER_SCALING)}_ls{LABEL_SMOOTHING}\")\n    FOLD_IDS = DRIVER_IDS\n\nRESULTS_ROOT = os.path.join(WORK, \"results\", tag)\n\ndef results_dir(seed):\n    return os.path.join(RESULTS_ROOT, f\"seed_{seed}\")\n\nRESULTS = results_dir(SEEDS[0])\nfor s in SEEDS:\n    os.makedirs(results_dir(s), exist_ok=True)\n\nprint(f\"dataset : {DATASET}\")\nprint(f\"setup   : {tag}, seeds={SEEDS}, folds={FOLD_IDS}\")\nprint(\"results ->\", RESULTS_ROOT)\n",
+        "SEARCH_ROOTS = [os.environ.get(\"OBD2_BUNDLE\"), \"/kaggle/input\", \"./bundle\", \"../kaggle/bundle\"]\nSEARCH_ROOTS = [r for r in SEARCH_ROOTS if r and os.path.isdir(r)]\n\ndef find(pattern):\n    hits = []\n    for root in SEARCH_ROOTS:\n        hits += glob.glob(os.path.join(root, pattern), recursive=True)\n    return sorted(hits)\n\nif DATASET == \"efdb\":\n    data_hits = find(\"**/EngineFaultDB_Final.csv\")\n    need = \"EngineFaultDB_Final.csv\"\nelse:\n    # Kaggle decompresses .gz while processing a dataset, so accept either form.\n    data_hits = (find(\"**/obd2_engine_health_lodo.csv.gz\")\n                 or find(\"**/obd2_engine_health_lodo.csv\")\n                 or find(\"**/*Classified*.csv\"))\n    need = \"obd2_engine_health_lodo.csv\"\n\ncode_hits = find(\"**/src/custom/main.py\")\n\nif not data_hits:\n    raise SystemExit(f\"{need} not found. Attach the dataset built by \"\n                     \"prepare_kaggle_bundle.py (Add Data in the right-hand panel).\")\nif not code_hits:\n    raise SystemExit(\"code/src/custom/main.py not found in the attached dataset.\")\n\nDATA_FILE = data_hits[0]\nSRC_CUSTOM = os.path.dirname(code_hits[0])\nprint(\"data :\", DATA_FILE, \"(%.1f MB)\" % (os.path.getsize(DATA_FILE) / 1e6))\nprint(\"code :\", SRC_CUSTOM)\n",
+        "PROJECT = os.path.join(WORK, \"obd2_model\")            # stands in for the OBD2 project root\nDEST = os.path.join(PROJECT, \"src\", \"custom\")\nos.makedirs(os.path.dirname(DEST), exist_ok=True)\nif os.path.exists(DEST):\n    shutil.rmtree(DEST)\nshutil.copytree(SRC_CUSTOM, DEST, ignore=shutil.ignore_patterns(\"__pycache__\", \"*.pyc\"))\nMAIN = os.path.join(DEST, \"main.py\")\nCONFIG = os.path.join(DEST, \"config_efdb.yaml\" if DATASET == \"efdb\" else \"config.yaml\")\nprint(\"staged\", len(os.listdir(DEST)), \"entries in\", DEST)\n\nfor mod, pkg in [(\"xgboost\", \"xgboost\"), (\"imblearn\", \"imbalanced-learn\")]:\n    try:\n        __import__(mod)\n        print(f\"{mod}: present\")\n    except ImportError:\n        print(f\"{mod}: installing {pkg} ...\")\n        subprocess.run([sys.executable, \"-m\", \"pip\", \"install\", \"-q\", pkg], check=False)\n",
+        "def run(*flags, tag=\"\", seed=None):\n    \"\"\"Invoke src/custom/main.py with the arguments for the selected dataset.\"\"\"\n    seed = SEEDS[0] if seed is None else seed\n    cmd = [sys.executable, \"-u\", MAIN,\n           \"--config\", CONFIG,\n           \"--data-file\", DATA_FILE,\n           \"--output-dir\", results_dir(seed),\n           \"--seed\", str(seed),\n           \"--driver-ids\", *[str(d) for d in FOLD_IDS]]\n\n    if DATASET == \"efdb\":\n        cmd += [\"--dataset\", \"efdb\", \"--split\", EFDB_SPLIT, \"--folds\", str(EFDB_FOLDS)]\n        if not EFDB_MERGE_23:\n            cmd.append(\"--no-merge\")\n    else:\n        cmd += [\"--dataset\", \"obd2\",\n                \"--windowing\", WINDOWING,\n                \"--val-split\", VAL_SPLIT,\n                \"--label-smoothing\", str(LABEL_SMOOTHING),\n                \"--segment-vote\", str(SEGMENT_VOTE)]\n        if PER_DRIVER_SCALING:\n            cmd.append(\"--per-driver-scaling\")\n\n    if EPOCHS:\n        cmd += [\"--epochs\", str(EPOCHS)]\n    cmd += list(flags)\n\n    print(\"$ \" + \" \".join(cmd[1:]))\n    print(\"-\" * 70)\n    start = time.time()\n    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,\n                            text=True, bufsize=1,\n                            env={**os.environ, \"PYTHONUNBUFFERED\": \"1\"})\n    for line in proc.stdout:\n        print(line, end=\"\")\n    proc.wait()\n    print(\"-\" * 70)\n    print(f\"{tag or 'run'}: exit={proc.returncode} in {(time.time() - start) / 60:.1f} min\")\n    if proc.returncode != 0:\n        raise RuntimeError(f\"{tag or 'run'} failed with exit code {proc.returncode}\")\n",
+        "run(\"--analysis-only\", tag=\"data audit\")\n",
+        "if RUN_SANITY:\n    run(\"--sanity-only\", tag=\"sanity checks\")\nelse:\n    print(\"skipped\")\n",
+        "flags = [\"--skip-sanity\"]\nif not RUN_ABLATIONS:\n    flags.append(\"--skip-ablations\")\nif not RUN_BASELINES:\n    flags.append(\"--skip-baselines\")\n\nfor i, seed in enumerate(SEEDS, 1):\n    print(\"\\n\" + \"=\" * 70)\n    print(f\"  SEED {seed}  ({i}/{len(SEEDS)})\")\n    print(\"=\" * 70)\n    if RUN_LODO:\n        run(*flags, tag=f\"seed {seed}: LODO + ablations + baselines\", seed=seed)\n    elif RUN_ABLATIONS:\n        run(\"--ablation-only\", tag=f\"seed {seed}: ablations\", seed=seed)\n    elif RUN_BASELINES:\n        run(\"--baselines-only\", tag=f\"seed {seed}: baselines\", seed=seed)\n    else:\n        print(\"nothing selected\")\n        break\n",
+        "import pandas as pd\n\ndef fmt(mean, sd):\n    return f\"{mean:.4f} \u00b1 {sd:.4f}\"\n\n# ---- main model: every fold of every seed --------------------------------\nrows = []\nfor seed in SEEDS:\n    p = os.path.join(results_dir(seed), \"lodo_main\", \"metrics\", \"lodo_summary.json\")\n    if not os.path.exists(p):\n        continue\n    s = json.load(open(p))\n    for i, drv in enumerate(FOLD_IDS):\n        rows.append({\"Seed\": seed, \"Fold\": drv,\n                     \"Accuracy\":  s[\"per_fold_accuracy\"][i],\n                     \"Macro F1\":  s[\"per_fold_macro_f1\"][i],\n                     \"Severe F1\": (s.get(\"per_fold_severe_f1\")\n                                   or s.get(\"per_fold_class2_f1\"))[i],\n                     \"QWK\":       s[\"per_fold_qwk\"][i],\n                     \"Ord MAE\":   s[\"per_fold_ordinal_mae\"][i]})\n\nif rows:\n    lodo = pd.DataFrame(rows)\n    print(\"Main model - every fold, every seed:\")\n    display(lodo.round(4))\n\n    print(\"\\nBy held-out driver (mean \u00b1 sd across seeds):\")\n    display(lodo.groupby(\"Fold\").agg([\"mean\", \"std\"]).round(4))\n\n    metrics = [\"Accuracy\", \"Macro F1\", \"Severe F1\", \"QWK\", \"Ord MAE\"]\n    print(\"\\nOverall:\", {m: fmt(lodo[m].mean(), lodo[m].std()) for m in metrics})\nelse:\n    print(\"no lodo_summary.json found yet\")\n\n# ---- ablations: mean \u00b1 sd across seeds -----------------------------------\nabl = []\nfor seed in SEEDS:\n    p = os.path.join(results_dir(seed), \"ablations\", \"ablation_comparison.csv\")\n    if os.path.exists(p):\n        df = pd.read_csv(p)\n        df[\"Seed\"] = seed\n        abl.append(df)\n\nif abl:\n    abl = pd.concat(abl, ignore_index=True)\n    cols = [c for c in [\"Mean Macro F1\", \"Mean Acc\", \"Mean QWK\", \"Mean Sev F1\",\n                        \"Mean Ord MAE\"] if c in abl.columns]\n    summary = abl.groupby([\"Ablation\", \"Name\"])[cols].agg([\"mean\", \"std\"])\n    print(f\"\\nAblations across {abl['Seed'].nunique()} seed(s) - \"\n          \"if the sd overlaps, the ranking is not real:\")\n    display(summary.round(4))\n\n# ---- baselines: mean \u00b1 sd across seeds and folds --------------------------\nbase = []\nfor seed in SEEDS:\n    for d in FOLD_IDS:\n        p = os.path.join(results_dir(seed), \"baselines\", f\"fold_{d}\",\n                         \"baseline_comparison.csv\")\n        if os.path.exists(p):\n            df = pd.read_csv(p)\n            df[\"Seed\"], df[\"Fold\"] = seed, d\n            base.append(df)\n\nif base:\n    base = pd.concat(base, ignore_index=True)\n    cols = [c for c in [\"Accuracy\", \"Macro F1\", \"QWK\", \"Ordinal MAE\", \"Severe F1\"]\n            if c in base.columns]\n    print(\"\\nBaselines (mean \u00b1 sd across seeds and folds):\")\n    display(base.groupby(\"Model\")[cols].agg([\"mean\", \"std\"]).round(4))\n",
+        "from IPython.display import Image, display as disp\n\nfor drv in FOLD_IDS:\n    p = os.path.join(RESULTS, \"lodo_main\", f\"fold_{drv}\", \"visualizations\", \"confusion_matrix.png\")\n    if os.path.exists(p):\n        print(f\"Fold {drv}\")\n        disp(Image(filename=p))\n\nsev = os.path.join(RESULTS, \"lodo_main\", \"visualizations\", \"severe_error_analysis.png\")\nif os.path.exists(sev):\n    disp(Image(filename=sev))\n",
+        "for drv in FOLD_IDS:\n    p = os.path.join(RESULTS, \"lodo_main\", f\"fold_{drv}\", \"checkpoints\", \"diagnostics.json\")\n    if os.path.exists(p):\n        d = json.load(open(p))\n        print(f\"driver {drv}: {d['status']}  (best epoch {d['best_epoch']}/{d['total_epochs']}, \"\n              f\"{float(d['training_time_sec']):.0f}s)\")\n        for flag in d.get(\"flags\", []):\n            print(\"   -\", flag)\n",
+        "import zipfile\n\nzip_path = os.path.join(WORK, f\"results_{tag}.zip\")\nwith zipfile.ZipFile(zip_path, \"w\", zipfile.ZIP_DEFLATED) as z:\n    for root, _, files in os.walk(RESULTS_ROOT):\n        for f in files:\n            if f.endswith(\".pt\"):          # skip checkpoints\n                continue\n            full = os.path.join(root, f)\n            z.write(full, os.path.relpath(full, WORK))\nprint(\"wrote %s (%.1f MB)\" % (zip_path, os.path.getsize(zip_path) / 1e6))\nprint(\"Grab it from the notebook's Output tab when the run finishes.\")\n"
+      ]
+    }
+  ],
+  "split_counts": {
+    "train": 1374,
+    "test": 430,
+    "val": 344
+  },
+  "class_counts": {
+    "1": 1074,
+    "0": 179,
+    "2": 895
+  },
+  "manifest_sha256": "f3c19a34088394f1b6d0e063007443fa774825b337d4344ab63b5e3b69579ee3",
+  "audio": {
+    "count": 2148,
+    "formats_channels_bytes_rate_frames": {
+      "(1, 2, 44100, 44100)": 2148
+    },
+    "duplicate_pcm_excess": 0,
+    "normalized_min": -0.999725341796875,
+    "normalized_max": 0.9984130859375,
+    "full_scale_samples": 0,
+    "total_samples": 94726800
+  },
+  "cached_prediction_check": {
+    "model_and_archive_hashes_match": true,
+    "archive_matches_manifest_and_raw_audio": true,
+    "confusion_matrix_true_rows": [
+      [
+        35,
+        0,
+        1
+      ],
+      [
+        0,
+        210,
+        5
+      ],
+      [
+        0,
+        0,
+        179
+      ]
+    ],
+    "accuracy": 0.986046511627907,
+    "macro_f1": 0.9858890901972922,
+    "wilson_95_accuracy_iid_only": [
+      0.9698958861758306,
+      0.9935897178423844
+    ],
+    "max_probability_sum_error": 1.1920928955078125e-07
+  },
+  "feature_cache": {
+    "keys": [
+      "X_train",
+      "X_val",
+      "X_test"
+    ],
+    "train": {
+      "shape": [
+        1374,
+        24
+      ],
+      "finite": true,
+      "rms_matches_manifest_order": true,
+      "old_zcr_matches": false,
+      "corrected_zcr_matches": true,
+      "cached_zcr_range": [
+        0.0052382140420377254,
+        0.05385609716176987
+      ],
+      "corrected_zcr_range": [
+        0.005238214018458469,
+        0.05385609651012495
+      ]
+    },
+    "val": {
+      "shape": [
+        344,
+        24
+      ],
+      "finite": true,
+      "rms_matches_manifest_order": true,
+      "old_zcr_matches": false,
+      "corrected_zcr_matches": true,
+      "cached_zcr_range": [
+        0.00569173926487565,
+        0.045261796563863754
+      ],
+      "corrected_zcr_range": [
+        0.005691739041701626,
+        0.04526179731966711
+      ]
+    },
+    "test": {
+      "shape": [
+        430,
+        24
+      ],
+      "finite": true,
+      "rms_matches_manifest_order": true,
+      "old_zcr_matches": false,
+      "corrected_zcr_matches": true,
+      "cached_zcr_range": [
+        0.0038096101488918066,
+        0.045987438410520554
+      ],
+      "corrected_zcr_range": [
+        0.0038096101952425224,
+        0.04598743735685616
+      ]
+    }
+  }
+}

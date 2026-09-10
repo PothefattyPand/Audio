@@ -2617,7 +2617,7 @@
     }
   },
   "versions": {
-    "numpy": "2.3.5",
+    "numpy": "2.5.3",
     "matplotlib": "3.11.1"
   },
   "model_sha256": "b0e635f3595034caa514905fad87c54c80572dc04400fee671c0cbcc66a2db9a",
